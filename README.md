@@ -1,4 +1,4 @@
-# webcapture
+# multi-capture
 Take a full page screenshot with multiple pages.
 
 ### how-to-use
