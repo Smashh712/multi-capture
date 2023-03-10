@@ -36,6 +36,14 @@ class MyWindow(QMainWindow):
         btn3.move(600, 200)
         btn3.clicked.connect(self.daum_login)
 
+        self.line_edit = QLineEdit("ID", self)
+        self.line_edit.move(0, 400)
+        self.line_edit.resize(400, 50)
+
+        self.line_edit2 = QLineEdit("Password", self)
+        self.line_edit2.move( 0,450)
+        self.line_edit2.resize(400, 50)
+
     def screenshot(self):
         for i, url in enumerate(self.url_list):
             self.driver.get(url)
@@ -80,9 +88,11 @@ class MyWindow(QMainWindow):
         self.driver.get(url)
         sleep(1)
 
-        user_id = ""
-        user_passwd = ""
+        user_id = self.line_edit.text()
+        user_passwd = self.line_edit2.text()
 
+        print(f"{user_id} : id")
+        print(f"{user_passwd} : pass")
         id_form = self.driver.find_element(By.XPATH, '//*[@id="loginKey--1"]')
         id_form.send_keys(user_id)
 
